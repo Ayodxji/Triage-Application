@@ -1,0 +1,38 @@
+# Build output
+TriageApplication/target/
+TriageApplication/build/
+
+# Dependencies — managed by Maven, not committed
+TriageApplication/src/main/webapp/WEB-INF/lib/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+TriageApplication/.classpath
+TriageApplication/.project
+TriageApplication/.settings/
+
+# DB credentials — never commit these
+TriageApplication/src/main/resources/db.properties
+
+# React
+triage-frontend/node_modules/
+triage-frontend/build/
+triage-frontend/.env.local
+triage-frontend/.env.development.local
+triage-frontend/.env.test.local
+triage-frontend/.env.production.local
+
+# Claude Code internals
+.claude/
+
+# Local server config (Eclipse/IntelliJ Tomcat)
+Servers/
+
+# OS
+.DS_Store
+Thumbs.db

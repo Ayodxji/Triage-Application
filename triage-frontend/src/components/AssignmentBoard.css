@@ -1,0 +1,61 @@
+.board-title {
+  margin: 1.5rem 0 0.75rem;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.nurse-card {
+  border: 1px solid #c5cae9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.nurse-card-header {
+  background: #1a237e;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nurse-id {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.patient-count {
+  font-size: 0.78rem;
+  background: rgba(255,255,255,0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.patient-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem;
+}
+
+.patient-list li {
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.88rem;
+  color: #444;
+}
+
+.patient-list li:last-child {
+  border-bottom: none;
+}
+
+.empty-msg {
+  color: #888;
+  font-style: italic;
+}
