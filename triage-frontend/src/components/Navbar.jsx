@@ -4,7 +4,7 @@ import './Navbar.css';
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <span className="navbar-brand">Triage System</span>
+      <span className="navbar-brand">Triage Pro</span>
       <div className="navbar-links">
         <NavLink to="/"         end className={({ isActive }) => isActive ? 'active' : ''}>Dashboard</NavLink>
         <NavLink to="/nurses"       className={({ isActive }) => isActive ? 'active' : ''}>Nurses</NavLink>

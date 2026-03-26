@@ -27,9 +27,6 @@ triage-frontend/.env.development.local
 triage-frontend/.env.test.local
 triage-frontend/.env.production.local
 
-# Claude Code internals
-.claude/
-
 # Local server config (Eclipse/IntelliJ Tomcat)
 Servers/
 
