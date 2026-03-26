@@ -13,18 +13,30 @@ public class DatabaseConnection {
 	private static final String PASSWORD;
 
 	static {
-		Properties props = new Properties();
-		try (InputStream in = DatabaseConnection.class.getClassLoader().getResourceAsStream("db.properties")) {
-			if (in == null) {
-				throw new RuntimeException("db.properties not found on classpath");
+		// Check environment variables first (used in production/Railway).
+		// Fall back to db.properties for local development.
+		String envUrl  = System.getenv("DB_URL");
+		String envUser = System.getenv("DB_USER");
+		String envPass = System.getenv("DB_PASSWORD");
+
+		if (envUrl != null && envUser != null && envPass != null) {
+			DB_URL   = envUrl;
+			USER     = envUser;
+			PASSWORD = envPass;
+		} else {
+			Properties props = new Properties();
+			try (InputStream in = DatabaseConnection.class.getClassLoader().getResourceAsStream("db.properties")) {
+				if (in == null) {
+					throw new RuntimeException("db.properties not found on classpath");
+				}
+				props.load(in);
+			} catch (IOException e) {
+				throw new RuntimeException("Failed to load db.properties", e);
 			}
-			props.load(in);
-		} catch (IOException e) {
-			throw new RuntimeException("Failed to load db.properties", e);
+			DB_URL   = props.getProperty("db.url");
+			USER     = props.getProperty("db.user");
+			PASSWORD = props.getProperty("db.password");
 		}
-		DB_URL = props.getProperty("db.url");
-		USER = props.getProperty("db.user");
-		PASSWORD = props.getProperty("db.password");
 	}
 
 	public static Connection getDBConnection() {
